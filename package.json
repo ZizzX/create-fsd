@@ -1,29 +1,38 @@
 {
   "name": "create-fsd-structure",
   "version": "0.1.0",
-  "description": "CLI tool for creating Feature-Sliced Design (FSD) folder structure in React projects",
+  "description": "CLI tool for generating and managing Feature-Sliced Design project structures in React applications",
   "main": "bin/index.js",
+  "type": "module",
   "bin": {
     "create-fsd": "bin/index.js"
   },
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": "Aziz Isapov <zizzxiii@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZizzX/create-fsd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ZizzX/create-fsd/issues",
+    "email": "zizzxiii@gmail.com"
   },
   "keywords": [
-    "fsd",
-    "feature-sliced",
     "react",
+    "feature-sliced",
+    "fsd",
     "cli",
     "generator",
-    "structure"
+    "structure",
+    "architecture"
   ],
-  "author": "Aziz Isapov",
-  "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^11.0.0",
     "fs-extra": "^11.1.1",
     "inquirer": "^12.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
