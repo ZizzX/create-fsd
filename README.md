@@ -1,5 +1,10 @@
 # create-fsd-structure
 
+[![NPM version](https://img.shields.io/npm/v/create-fsd-structure.svg)](https://www.npmjs.com/package/create-fsd-structure)
+[![NPM downloads](https://img.shields.io/npm/dm/create-fsd-structure.svg)](https://www.npmjs.com/package/create-fsd-structure)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ZizzX/create-fsd/ci.yml?branch=main)](https://github.com/ZizzX/create-fsd/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 CLI инструмент для создания и управления структурой проекта по методологии Feature-Sliced Design (FSD) в React проектах.
 
 ## Установка
