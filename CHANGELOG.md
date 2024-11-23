@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2023-11-23
 
 ### Added
+
 - Initial release
 - Basic FSD structure generation
 - Component generation with tests and stories

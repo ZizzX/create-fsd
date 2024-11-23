@@ -1,205 +1,106 @@
 # create-fsd-structure
 
-[![NPM version](https://img.shields.io/npm/v/create-fsd-structure.svg)](https://www.npmjs.com/package/create-fsd-structure)
-[![NPM downloads](https://img.shields.io/npm/dm/create-fsd-structure.svg)](https://www.npmjs.com/package/create-fsd-structure)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ZizzX/create-fsd/ci.yml?branch=main)](https://github.com/ZizzX/create-fsd/actions)
+[![NPM Version](https://img.shields.io/npm/v/create-fsd-structure)](https://www.npmjs.com/package/create-fsd-structure)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-CLI инструмент для создания и управления структурой проекта по методологии Feature-Sliced Design (FSD) в React проектах.
+CLI tool for generating Feature-Sliced Design (FSD) project structures in React applications.
 
-## Установка
+## Features
 
-Глобальная установка:
+- 🚀 Quick setup of FSD architecture
+- 📦 TypeScript support out of the box
+- 🎨 Component generation with optional features
+- 🧪 Test files generation
+- 📚 Storybook stories generation
+- 💅 SCSS modules support
+
+## Installation
+
 ```bash
 npm install -g create-fsd-structure
-# или
-yarn global add create-fsd-structure
 ```
 
-Локальная установка:
-```bash
-npm install create-fsd-structure
-# или
-yarn add create-fsd-structure
-```
-
-## Использование
-
-### Инициализация FSD структуры
-
-Создание базовой FSD структуры в проекте:
+Or use directly with npx:
 
 ```bash
-create-fsd init [options]
+npx create-fsd-structure
 ```
 
-Опции:
-- `-f, --force` - принудительное создание, даже если директории существуют
-- `-i, --interactive` - интерактивный режим создания
+## Usage
 
-Создаст структуру:
+### Create FSD Structure
+
+```bash
+create-fsd init
+```
+
+This will create the following structure:
+
 ```
 src/
-├── app/          # Инициализация приложения
-├── processes/    # Бизнес-процессы
-├── pages/        # Страницы приложения
-├── widgets/      # Самостоятельные блоки
-├── features/     # Действия пользователя
-├── entities/     # Бизнес-сущности
-└── shared/       # Переиспользуемый код
-    ├── ui/       # UI компоненты
-    ├── lib/      # Библиотеки
-    ├── api/      # API
-    ├── config/   # Конфигурация
-    ├── types/    # Типы
-    └── constants/# Константы
+├── app/
+├── processes/
+├── pages/
+├── widgets/
+├── features/
+├── entities/
+└── shared/
+    ├── api/
+    ├── config/
+    ├── lib/
+    ├── types/
+    ├── ui/
+    └── constants/
 ```
 
-### Создание компонента
+### Create Component
 
 ```bash
 create-fsd component <layer> <name> [options]
 ```
 
-Аргументы:
-- `layer` - слой FSD (entities, features, widgets)
-- `name` - имя компонента
+Options:
+- `--tests` - Generate test file
+- `--stories` - Generate Storybook story
+- `--scss` - Use SCSS modules (default: true)
 
-Опции:
-- `-t, --tests` - создать тесты
-- `-s, --stories` - создать Storybook истории
-
-Пример:
-```bash
-create-fsd component widgets Header --tests --stories
-```
-
-### Создание shared компонента
+Example:
 
 ```bash
-create-fsd shared <segment> <name> [options]
+create-fsd component features AuthForm --tests --stories
 ```
 
-Аргументы:
-- `segment` - сегмент shared слоя (ui, lib, api, config, types, constants, helpers)
-- `name` - имя компонента или модуля
-
-Опции:
-- `-t, --tests` - создать тесты (для ui, lib, api, helpers)
-- `-s, --stories` - создать Storybook истории (только для ui)
-
-Примеры:
-```bash
-# UI компонент
-create-fsd shared ui Button --tests --stories
-
-# API модуль
-create-fsd shared api users --tests
-
-# Библиотека
-create-fsd shared lib hooks --tests
-
-# Типы
-create-fsd shared types User
-
-# Константы
-create-fsd shared constants routes
-
-# Вспомогательные функции
-create-fsd shared helpers formatters --tests
-```
-
-Создаст соответствующую структуру:
+This will create:
 
 ```
-shared/ui/Button/
-├── Button.tsx
-├── Button.module.css
-├── Button.test.tsx
-├── Button.stories.tsx
-└── index.ts
-
-shared/api/users/
-├── users.ts
-├── users.test.ts
-└── index.ts
-
-shared/lib/hooks/
-├── hooks.ts
-├── hooks.test.ts
-└── index.ts
-
-shared/types/User/
-├── User.ts
-└── index.ts
-
-shared/constants/routes/
-├── routes.ts
-└── index.ts
-
-shared/helpers/formatters/
-├── formatters.ts
-├── formatters.test.ts
+src/features/AuthForm/
+├── ui/
+│   ├── AuthForm.tsx
+│   ├── AuthForm.module.scss
+│   ├── AuthForm.test.tsx
+│   └── AuthForm.stories.tsx
 └── index.ts
 ```
 
-### Создание фичи
+## Configuration
 
-```bash
-create-fsd feature <name> [options]
+You can customize the templates and configuration by creating a `.fsdrc.json` file in your project root:
+
+```json
+{
+  "templates": {
+    "component": "custom/path/to/component.template",
+    "story": "custom/path/to/story.template"
+  },
+  "typescript": true,
+  "cssModules": "scss"
+}
 ```
 
-Аргументы:
-- `name` - имя фичи
+## Contributing
 
-Опции:
-- `-t, --tests` - создать тесты
-- `-s, --stories` - создать Storybook истории
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-### Создание сущности
+## License
 
-```bash
-create-fsd entity <name> [options]
-```
-
-Аргументы:
-- `name` - имя сущности
-
-Опции:
-- `-t, --tests` - создать тесты
-- `-s, --stories` - создать Storybook истории
-
-## Структура генерируемых файлов
-
-### Компоненты
-- `.tsx` - React компонент
-- `.module.css` - CSS модуль
-- `.test.tsx` - Тесты (опционально)
-- `.stories.tsx` - Storybook истории (опционально)
-- `index.ts` - Публичное API
-
-### Shared модули
-- UI компоненты: React компоненты с тестами и историями
-- API модули: Методы API с тестами
-- Библиотеки: Утилиты и хуки с тестами
-- Типы: TypeScript интерфейсы и типы
-- Константы: Константы проекта
-- Helpers: Вспомогательные функции с тестами
-
-### Фичи
-- `ui/` - React компоненты
-- `model/` - Бизнес-логика (Redux slice, селекторы, типы)
-- `api/` - API запросы (RTK Query)
-- `index.ts` - Публичное API
-
-### Сущности
-- `ui/` - React компоненты
-- `model/` - Бизнес-логика и типы
-  - `schema.ts` - Схема состояния
-  - `selectors.ts` - Селекторы
-  - `types.ts` - Типы
-- `index.ts` - Публичное API
-
-## Лицензия
-
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

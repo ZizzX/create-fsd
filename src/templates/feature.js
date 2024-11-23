@@ -1,4 +1,4 @@
-import { componentTemplate, styleTemplate, testTemplate, storyTemplate, indexTemplate } from './component.js';
+import { componentTemplate, indexTemplate, storyTemplate, styleTemplate, testTemplate } from './component.js';
 
 export const modelTemplate = (name) => `import { createSlice } from '@reduxjs/toolkit';
 
@@ -45,4 +45,5 @@ export { select${name}State } from './model/selectors';
 export type { I${name} } from './model/types';
 `;
 
-export { componentTemplate, styleTemplate, testTemplate, storyTemplate, indexTemplate };
+export { componentTemplate, indexTemplate, storyTemplate, styleTemplate, testTemplate };
+

@@ -82,5 +82,6 @@ npm run lint
 ## Questions?
 
 Feel free to contact the project maintainer if you have any questions:
-* Email: zizzxiii@gmail.com
+
+* Email: <zizzxiii@gmail.com>
 * GitHub Issues: [create-fsd-structure/issues](https://github.com/ZizzX/create-fsd/issues)
